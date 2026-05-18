@@ -1,0 +1,74 @@
+// lib/models/analysis_data.dart
+class RadarDimension {
+  final String label;
+  final double value; // 0.0 - 1.0
+  final String color;
+
+  const RadarDimension({
+    required this.label,
+    required this.value,
+    required this.color,
+  });
+}
+
+class AnalysisData {
+  final List<RadarDimension> dimensions;
+  final String insight;
+  final String quickTip;
+  final String? archetypeLabel;
+  final List<String> insightTags;
+  final DateTime generatedAt;
+
+  const AnalysisData({
+    required this.dimensions,
+    required this.insight,
+    required this.quickTip,
+    this.archetypeLabel,
+    this.insightTags = const [],
+    required this.generatedAt,
+  });
+
+  factory AnalysisData.empty() => AnalysisData(
+        dimensions: [
+          const RadarDimension(label: 'Odak', value: 0.0, color: '#E5EEFF'),
+          const RadarDimension(label: 'Yaratıcılık', value: 0.0, color: '#D2BFE7'),
+          const RadarDimension(label: 'Empati', value: 0.0, color: '#CEF7DE'),
+          const RadarDimension(label: 'Dayanıklılık', value: 0.0, color: '#A9C9F3'),
+          const RadarDimension(label: 'Huzur', value: 0.0, color: '#D2BFE7'),
+        ],
+        insight: '',
+        quickTip: '',
+        generatedAt: DateTime(2024),
+      );
+
+  factory AnalysisData.fromJson(Map<String, dynamic> json) {
+    final dims = (json['dimensions'] as List<dynamic>?)
+            ?.map((d) {
+              final m = d as Map<String, dynamic>;
+              return RadarDimension(
+                label: m['label'] as String,
+                value: (m['value'] as num).toDouble() / 100,
+                color: m['color'] as String? ?? '#E5EEFF',
+              );
+            })
+            .toList() ??
+        [];
+
+    return AnalysisData(
+      dimensions: dims.isNotEmpty
+          ? dims
+          : [
+              RadarDimension(label: 'Odak', value: (json['focus'] as num? ?? 50) / 100, color: '#E5EEFF'),
+              RadarDimension(label: 'Yaratıcılık', value: (json['creativity'] as num? ?? 50) / 100, color: '#D2BFE7'),
+              RadarDimension(label: 'Empati', value: (json['empathy'] as num? ?? 50) / 100, color: '#CEF7DE'),
+              RadarDimension(label: 'Dayanıklılık', value: (json['resilience'] as num? ?? 50) / 100, color: '#A9C9F3'),
+              RadarDimension(label: 'Huzur', value: (json['calm'] as num? ?? 50) / 100, color: '#D2BFE7'),
+            ],
+      insight: json['insight'] as String? ?? '',
+      quickTip: json['quickTip'] as String? ?? '',
+      archetypeLabel: json['archetypeLabel'] as String?,
+      insightTags: List<String>.from(json['insightTags'] ?? []),
+      generatedAt: DateTime.now(),
+    );
+  }
+}
