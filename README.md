@@ -29,7 +29,6 @@ ________________________________________
 | **UI/UX Tasarımı** | Stitch| Film, dizi ve oyun severlerin estetik algısına uygun, karanlık mod (Dark Mode) öncelikli modern görsel prototipleme. |
 | **Yapay Zekâ** | Google Gemini API | Kullanıcının en sevdiği film türlerine, takip ettiği dizilere veya oynadığı oyunlara göre dinamik ana sayfa ve ürün önerileri oluşturur.[cite: 1] |
 | **Yerel Depolama** |SharedPreferences | Kullanıcı oturum bilgilerini, sepet geçmişini, favori dizi/film/oyun etiketlerini ve arama trendlerini cihazda güvenli tutar.[cite: 1] |
-| **Ödeme Altyapısı** | iyzico / Stripe | Kullanıcıların güvenli ve hızlı bir şekilde 3D Secure ile alışveriş yapmasını sağlar.[cite: 1] |
 | **UI/UX Şablonları** | Google Fonts, Carousel, Badges | Popüler kültür ve sinema estetiğine uygun, kullanıcı dostu Flutter widget'ları ve kütüphaneleri.[cite: 1] |
 
 
