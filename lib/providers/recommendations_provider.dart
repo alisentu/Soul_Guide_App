@@ -3,18 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/movie_series.dart';
 import '../models/game.dart';
 import '../models/book.dart';
-import '../models/product.dart';
 import '../services/tmdb_service.dart';
 import '../services/rawg_service.dart';
 import '../services/books_service.dart';
-import '../services/trendyol_service.dart';
 import 'user_provider.dart';
 
 final tmdbServiceProvider = Provider<TmdbService>((ref) => TmdbService());
 final rawgServiceProvider = Provider<RawgService>((ref) => RawgService());
 final booksServiceProvider = Provider<BooksService>((ref) => BooksService());
-final trendyolServiceProvider =
-    Provider<TrendyolService>((ref) => TrendyolService());
 
 // ─── MOCK FALLBACK DATA ────────────────────────────────────────────────────
 
@@ -447,44 +443,7 @@ final bookSearchProvider =
               },
             ));
 
-// ─── PRODUCTS ─────────────────────────────────────────────────────────────
-
-final productsProvider = FutureProvider<List<Product>>((ref) async {
-  final trendyol = ref.watch(trendyolServiceProvider);
-  final gemini = ref.watch(geminiServiceProvider);
-  final profile = ref.watch(userProfileProvider);
-
-  try {
-    final tags = profile?.interestTags ?? [];
-    final fallbackQuery = tags.isNotEmpty ? tags.first : 'hediye';
-
-    // Profil tabanlı akıllı kategori önerisi
-    final category = await gemini.generateShoppingCategory(
-        tags, profile?.age, profile?.zodiacSign);
-
-    if (category.isEmpty) {
-      return await trendyol.searchProducts(fallbackQuery);
-    }
-
-    // Doğrudan Trendyol'dan sonuç al
-    final results = await trendyol.searchProducts(category);
-
-    if (results.isNotEmpty) {
-      results.shuffle();
-      return results.take(15).toList();
-    }
-
-    // Sonuç yoksa fallback olarak genel arama
-    return await trendyol.searchProducts(fallbackQuery);
-  } catch (e) {
-    // Hata durumunda güvenli bir arama dene
-    try {
-      return await trendyol.searchProducts('trend');
-    } catch (_) {
-      return [];
-    }
-  }
-});
+// ─── DAILY PICKS ─────────────────────────────────────────────────────────
 final dailyPickMovieProvider = FutureProvider<MovieSeries?>((ref) async {
   final movies = await ref.watch(moviesProvider.future);
   if (movies.isEmpty) return null;

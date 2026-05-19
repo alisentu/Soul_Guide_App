@@ -10,7 +10,6 @@ import '../../screens/home/home_screen.dart';
 import '../../screens/home/category_screens/series_screen.dart';
 import '../../screens/home/category_screens/games_screen.dart';
 import '../../screens/home/category_screens/books_screen.dart';
-import '../../screens/home/category_screens/shopping_screen.dart';
 import '../../screens/search/search_screen.dart';
 import '../../screens/analysis/analysis_screen.dart';
 import '../../screens/tests/tests_screen.dart';
@@ -36,7 +35,6 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/category/series', builder: (ctx, state) => const SeriesScreen()),
       GoRoute(path: '/category/games', builder: (ctx, state) => const GamesScreen()),
       GoRoute(path: '/category/books', builder: (ctx, state) => const BooksScreen()),
-      GoRoute(path: '/category/shopping', builder: (ctx, state) => const ShoppingScreen()),
       GoRoute(
         path: '/series-detail',
         builder: (ctx, state) {

@@ -246,44 +246,7 @@ value değerlerini (0-100) kullanıcının cevaplarının tonuna göre hesapla. 
     return AnalysisData.fromJson(data);
   }
 
-  // ─── ALIŞVERİŞ (SHOPPING) İÇİN SORGUSU ──────────────────────────────────
 
-  Future<String> generateShoppingCategory(
-      List<String> tags, int? age, String? zodiacSign) async {
-    if (tags.isEmpty) return 'teknoloji';
-
-    final tagsStr = tags.join(', ');
-
-    final prompt = '''
-Kullanıcının Yaşı: ${age ?? 'Bilinmiyor'}
-Kullanıcının Burcu: ${zodiacSign ?? 'Bilinmiyor'}
-Kullanıcının İlgi Etiketleri: $tagsStr
-
-Bu kişinin yaşına, burcuna ve ilgi alanlarına bakarak, Trendyol'da iyi sonuç bulacak bir ARAMA TERİMİ oluştur.
-Örn: "yazlık elbise", "spor ayakkabı", "gaming monitörü", "yoga matı", "kitap sehpası"
-
-Arama terimi kısa (2-4 kelime), Trendyol'da çok sonuç veren ve TÜRKÇE olmalı.
-SADECE ARAMA TERİMİNİ TÜRKÇECEsever yarat:
-
-{
-  "searchTerm": "arama terimi"
-}''';
-
-    try {
-      final text = await _generate(prompt);
-      final jsonStr = _extractJson(text);
-      final data = jsonDecode(jsonStr) as Map<String, dynamic>;
-
-      final searchTerm = data['searchTerm'] as String?;
-
-      if (searchTerm != null && searchTerm.isNotEmpty) {
-        return searchTerm;
-      }
-      return 'trend'; // Fallback - Trendyol'da trend ürünler
-    } catch (e) {
-      return 'trend'; // Fallback
-    }
-  }
 
   // ─── TAG → TMDB GENRE ID MAPPING ─────────────────────────────────────────
   // Kullanıcının hem genel interestTags hem de movieGenres'i kullanılır
