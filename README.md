@@ -45,14 +45,13 @@ Uygulama, alışveriş sürecini sıkıcı bir ürün listelemesinden çıkarıp
 
 •	Üç Büyük Evren (Kategori Yönetimi): Film, Dizi ve Oyun dünyası için ayrı ayrı özelleştirilmiş vitrinler. Oscar ödüllü filmlerin replika eşyalarından, popüler dizilerin ikonik giysilerine ve oyun dünyasının koleksiyon figürlerine kadar akıllı filtreleme ile saniyeler içinde geçiş yapın.
 
-•	Sinefil & Gamer Sınavları (Kupon Sistemi): En sevdiğiniz dizinin replikleri, kült filmlerin detayları veya popüler oyunların hikayeleri hakkında hazırlanan mini testleri çözün; bilginizi kanıtlayarak o kategoriye özel indirim kuponları kazanın.
+•	Sinefil & Gamer Sınavları (Kupon Sistemi): En sevdiğiniz dizinin replikleri, kült filmlerin detayları veya popüler oyunların hikayeleri hakkında hazırlanan mini testleri çözün sizin için kişiselleştirilmiş içeriklere göz atın.
 
 •	Yapay Zekâ "Soul Guide " Asistanı: Google Gemini destekli asistanınıza "Arkadaşım tam bir Christopher Nolan hayranı, Breaking Bad dizisini çok seviyor ve fantastik oyunlar oynuyor, ona ne hediye alabilirim?" diye sorun; bütçenize uygun film, dizi ve oyun temalı en iyi kombinasyonları anında listelesin.
 
 •	Gündem ve Trend Entegrasyonu: Sinemada vizyona giren filmlerin, platformlarda o hafta trend olan dizilerin veya yeni çıkış yapan oyunların rüzgarını kaçırmayın. Haftalık trendlere ait lisanslı ürün koleksiyonlarına doğrudan ana sayfadan erişim sağlayın.
 
-•	İstek Listesi ve Fiyat Alarmı: Sınırlı sayıda üretilen Marvel/DC figürlerini, sevdiğiniz dizinin özel tasarım posterini veya merakla beklediğiniz bir oyunun dijital kodunu listenize ekleyin; fiyatı düştüğünde veya stok yenilendiğinde anında bildirim alın.
-
+•	İstek Listesi ve Fiyat Alarmı: Sınırlı sayıda üretilen Marvel/DC figürlerini, sevdiğiniz dizinin özel tasarım posterini veya merakla beklediğiniz bir oyunu listenize ekleyin ve anın tadını çıkarın.
 
 ________________________________________
 
